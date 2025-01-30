@@ -1,7 +1,14 @@
 // pages/index.js
 "use client"
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
+
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  image: string;
+}
 
 const technologies = [
   { name: "React", level: 90 },
@@ -34,16 +41,10 @@ const projects = [
 ];
 
 export default function Home() {
-  interface Project {
-    title: string;
-    description: string;
-    tech: string[];
-    image: string;
-  }
+
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const containerRef = useRef(null);
-  const [isInView, setIsInView] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -71,20 +72,6 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="bg-gray-900 text-white">
-      {/* Animated cursor */}
-      <motion.div
-        className="z-50 fixed bg-blue-500 rounded-full w-6 h-6 pointer-events-none mix-blend-difference"
-        animate={{
-          x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0,
-          y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0,
-          scale: [1, 1.2, 1]
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 25
-        }}
-      />
 
       {/* Hero Section */}
       <motion.section
@@ -124,12 +111,12 @@ export default function Home() {
             className="absolute bg-blue-500 rounded-full w-2 h-2"
             animate={{
               x: [
-                Math.random() * window?.innerWidth || 0,
-                Math.random() * window?.innerWidth || 0
+                typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0,
+                typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0
               ],
               y: [
-                Math.random() * window?.innerHeight || 0,
-                Math.random() * window?.innerHeight || 0
+                typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0,
+                typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0
               ]
             }}
             transition={{
@@ -266,7 +253,7 @@ export default function Home() {
           transition={{ duration: 1 }}
           className="z-10 text-center"
         >
-          <h2 className="mb-8 font-bold text-4xl">Let's Connect</h2>
+          <h2 className="mb-8 font-bold text-4xl">Let&apos;s Connect</h2>
           <motion.div
             whileHover={{ scale: 1.1 }}
             className="mb-6"
@@ -299,12 +286,12 @@ export default function Home() {
             className="absolute bg-blue-500/20 rounded-full w-20 h-20"
             animate={{
               x: [
-                Math.random() * window?.innerWidth || 0,
-                Math.random() * window?.innerWidth || 0
+                typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0,
+                typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0
               ],
               y: [
-                Math.random() * window?.innerHeight || 0,
-                Math.random() * window?.innerHeight || 0
+                typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0,
+                typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0
               ],
               scale: [1, 1.5, 1]
             }}

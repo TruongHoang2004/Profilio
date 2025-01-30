@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Hi, I'm Hoàng Xuân Trường",
+    "subtitle": "Full Stack Developer",
+    "description": "I create beautiful and functional web experiences"
+  },
+  {
+    "title": "My Skills",
+    "skills": ["React", "Next.js", "Node.js", "Python", "TypeScript", "AWS"]
+  },
+  {
+    "title": "Projects",
+    "projects": [
+      {
+        "title": "E-commerce Platform",
+        "description": "Built with Next.js and Stripe"
+      },
+      {
+        "title": "Social Media App",
+        "description": "React Native mobile application"
+      }
+    ]
+  },
+  {
+    "title": "Contact",
+    "email": "john@example.com",
+    "social": {
+      "github": "github.com/johndoe",
+      "linkedin": "linkedin.com/in/johndoe"
+    }
+  }
+]
